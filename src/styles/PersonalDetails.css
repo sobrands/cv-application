@@ -1,0 +1,14 @@
+.form {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border-color: #6d6767;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
