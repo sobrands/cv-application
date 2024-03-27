@@ -6,7 +6,7 @@ export default function PersonalDetails() {
       <h1>Personal Details</h1>
       <div className="fields">
         <div className="details">
-          <label htmlFor="fullName">Full Name </label>
+          <label htmlFor="fullName">Full Name</label>
           <input
             id="fullName"
             name="fullName"
@@ -14,7 +14,9 @@ export default function PersonalDetails() {
           ></input>
         </div>
         <div className="details">
-          <label htmlFor="email">Email </label>
+          <label htmlFor="email">
+            Email<span>recommended</span>
+          </label>
           <input
             id="email"
             name="email"
@@ -22,7 +24,9 @@ export default function PersonalDetails() {
           ></input>
         </div>
         <div className="details">
-          <label htmlFor="phoneNumber">Phone Number </label>
+          <label htmlFor="phoneNumber">
+            Phone Number<span>recommended</span>
+          </label>
           <input
             id="phoneNumber"
             name="phoneNumber"
@@ -30,7 +34,9 @@ export default function PersonalDetails() {
           ></input>
         </div>
         <div className="details">
-          <label htmlFor="address">Address </label>
+          <label htmlFor="address">
+            Address<span>recommended</span>
+          </label>
           <input
             id="address"
             name="address"
