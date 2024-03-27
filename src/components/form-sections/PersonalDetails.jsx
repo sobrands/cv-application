@@ -1,6 +1,6 @@
 import "../../styles/PersonalDetails.css";
 
-export default function PersonalDetails() {
+export default function PersonalDetails({ handleNameChange }) {
   return (
     <div className="form">
       <h1>Personal Details</h1>
@@ -11,6 +11,7 @@ export default function PersonalDetails() {
             id="fullName"
             name="fullName"
             placeholder="First and last name"
+            onChange={handleNameChange}
           ></input>
         </div>
         <div className="details">

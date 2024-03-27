@@ -1,5 +1,10 @@
 import "../styles/Preview.css";
+import PersonalInfo from "./preview-sections/PersonalInfo";
 
-export default function Preview() {
-  return <div className="preview">Preview</div>;
+export default function Preview({ name }) {
+  return (
+    <div className="preview">
+      <PersonalInfo name={name} />
+    </div>
+  );
 }
