@@ -29,5 +29,10 @@ h1 {
 }
 
 .details input::placeholder {
-  color: #302e2e;
+  color: rgb(122, 122, 122);
+}
+
+.details input:focus {
+  outline: 2px solid rgb(167, 167, 194);
+  box-shadow: 0 0 5px 1px rgb(128, 126, 126);
 }
