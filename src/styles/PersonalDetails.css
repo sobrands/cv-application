@@ -19,3 +19,12 @@ span {
   font-weight: 700;
   color: #c1c1c5;
 }
+
+.form input::placeholder {
+  color: rgb(122, 122, 122);
+}
+
+input:focus {
+  outline: 2px solid rgb(167, 167, 194);
+  box-shadow: 0 0 5px 1px rgb(128, 126, 126);
+}
