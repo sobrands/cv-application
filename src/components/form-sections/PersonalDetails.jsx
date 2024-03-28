@@ -2,7 +2,7 @@ import "../../styles/PersonalDetails.css";
 
 export default function PersonalDetails({ handleInputChange }) {
   return (
-    <div className="form">
+    <div className="formSection">
       <h1>Personal Details</h1>
       <div className="fields">
         <div className="details">
