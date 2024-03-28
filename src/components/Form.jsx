@@ -1,10 +1,10 @@
 import "../styles/Form.css";
 import PersonalDetails from "./form-sections/PersonalDetails";
 
-export default function Form({ handleNameChange }) {
+export default function Form({ handleInputChange }) {
   return (
     <div className="formFill">
-      <PersonalDetails handleNameChange={handleNameChange} />
+      <PersonalDetails handleInputChange={handleInputChange} />
     </div>
   );
 }

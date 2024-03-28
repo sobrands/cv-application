@@ -1,6 +1,6 @@
 import "../../styles/PersonalDetails.css";
 
-export default function PersonalDetails({ handleNameChange }) {
+export default function PersonalDetails({ handleInputChange }) {
   return (
     <div className="form">
       <h1>Personal Details</h1>
@@ -11,7 +11,7 @@ export default function PersonalDetails({ handleNameChange }) {
             id="fullName"
             name="fullName"
             placeholder="First and last name"
-            onChange={handleNameChange}
+            onChange={handleInputChange}
           ></input>
         </div>
         <div className="details">
@@ -22,6 +22,7 @@ export default function PersonalDetails({ handleNameChange }) {
             id="email"
             name="email"
             placeholder="Enter email address"
+            onChange={handleInputChange}
           ></input>
         </div>
         <div className="details">
@@ -32,6 +33,7 @@ export default function PersonalDetails({ handleNameChange }) {
             id="phoneNumber"
             name="phoneNumber"
             placeholder="Enter phone number"
+            onChange={handleInputChange}
           ></input>
         </div>
         <div className="details">
@@ -42,6 +44,7 @@ export default function PersonalDetails({ handleNameChange }) {
             id="address"
             name="address"
             placeholder="City, Country"
+            onChange={handleInputChange}
           ></input>
         </div>
       </div>

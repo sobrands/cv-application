@@ -10,3 +10,30 @@
   color:white;
   font-size: 2rem;
 }
+
+.otherInfo {
+  display: flex;
+  gap: 2rem;
+}
+
+.deets {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.deetsIcon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.deets span {
+  margin: 0;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.number .deetsIcon {
+  font-size: 1.1rem;
+}
