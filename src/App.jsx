@@ -4,24 +4,26 @@ import Preview from "./components/Preview";
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
-  const [address, setAddress] = useState("");
+  const [personalInfo, setPersonalInfo] = useState({
+    name: "",
+    email: "",
+    number: "",
+    address: "",
+  });
 
   function handleInputChange(e) {
     switch (e.target.id) {
       case "fullName":
-        setName(e.target.value);
+        setPersonalInfo({ ...personalInfo, name: e.target.value });
         break;
       case "email":
-        setEmail(e.target.value);
+        setPersonalInfo({ ...personalInfo, email: e.target.value });
         break;
       case "phoneNumber":
-        setNumber(e.target.value);
+        setPersonalInfo({ ...personalInfo, number: e.target.value });
         break;
       case "address":
-        setAddress(e.target.value);
+        setPersonalInfo({ ...personalInfo, address: e.target.value });
         break;
     }
   }
@@ -30,7 +32,7 @@ function App() {
     <>
       <main>
         <Form handleInputChange={handleInputChange} />
-        <Preview name={name} email={email} number={number} address={address} />
+        <Preview personalInfo={personalInfo} />
       </main>
     </>
   );
