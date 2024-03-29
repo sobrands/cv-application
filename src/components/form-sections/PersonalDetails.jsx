@@ -2,7 +2,7 @@ import "../../styles/PersonalDetails.css";
 
 export default function PersonalDetails({ handleInputChange }) {
   return (
-    <div className="formSection">
+    <form className="formSection">
       <h1>Personal Details</h1>
       <div className="fields">
         <div className="details">
@@ -48,6 +48,6 @@ export default function PersonalDetails({ handleInputChange }) {
           ></input>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
