@@ -31,7 +31,7 @@ export default function EducationInfo({
           <>
             <p>Education</p>
             {tempEduExperiences.map((experience) => (
-              <div key={experience.id} className="experience">
+              <div key={experience.id} className="experience edu">
                 <p id="school">{experience.school}</p>
                 <p id="degree">{experience.degree}</p>
                 <div className="dates">
