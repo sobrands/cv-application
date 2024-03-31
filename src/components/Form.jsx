@@ -6,6 +6,9 @@ export default function Form({
   handleInputChange,
   experiences,
   setExperiences,
+  tempExperiences,
+  setTempExperiences,
+  toggleTemp,
 }) {
   return (
     <div className="formFill">
@@ -13,6 +16,9 @@ export default function Form({
       <EducationModal
         experiences={experiences}
         setExperiences={setExperiences}
+        tempExperiences={tempExperiences}
+        setTempExperiences={setTempExperiences}
+        toggleTemp={toggleTemp}
       />
     </div>
   );

@@ -1,49 +1,48 @@
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-
 export default function EducationForm({
   experiences,
   setExperiences,
+  tempExperiences,
+  setTempExperiences,
   id,
   toggleFill,
 }) {
-  const [formData, setFormData] = useState(
-    id !== undefined
-      ? experiences.find((experience) => experience.id === id)
-      : {
-          id: "",
-          school: "",
-          degree: "",
-          startDate: "",
-          endDate: "",
-        },
-  );
+  const formData = tempExperiences.find((experience) => experience.id === id);
+  console.log(formData);
 
   function handleInputChange(e) {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const updatedTempExperiences = [...tempExperiences];
+    const idx = updatedTempExperiences.findIndex(
+      (experience) => experience.id === id,
+    );
+    updatedTempExperiences[idx] = {
+      ...updatedTempExperiences[idx],
+      [name]: value,
+    };
+    setTempExperiences(updatedTempExperiences);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setExperiences([
-      ...experiences,
-      {
-        id: uuidv4(),
-        school: formData.school,
-        degree: formData.degree,
-        startDate: formData.startDate,
-        endDate: formData.endDate,
-      },
-    ]);
+    const updatedTempExperiences = [...tempExperiences];
+    const idx = updatedTempExperiences.findIndex(
+      (experience) => experience.id === id,
+    );
+    updatedTempExperiences[idx].isSaved = true;
+    setTempExperiences(updatedTempExperiences);
+    setExperiences(updatedTempExperiences);
     toggleFill(e);
   }
 
-  function updateEntry(e) {
+  function cancelItem(e) {
     e.preventDefault();
-    const idx = experiences.findIndex((experience) => experience.id === id);
-    experiences[idx] = formData;
-    setExperiences(experiences);
+    const exp = tempExperiences.find((experience) => experience.id === id);
+    if (!exp.isSaved) {
+      const newList = tempExperiences.filter(
+        (experience) => experience.id !== id,
+      );
+      setTempExperiences(newList);
+    }
     toggleFill(e);
   }
 
@@ -51,11 +50,12 @@ export default function EducationForm({
     e.preventDefault();
     const newList = experiences.filter((experience) => experience.id !== id);
     setExperiences(newList);
+    setTempExperiences(newList);
     toggleFill(e);
   }
 
   return (
-    <form onSubmit={id !== undefined ? updateEntry : handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="fields">
         <div className="details">
           <label htmlFor="school">School</label>
@@ -102,7 +102,7 @@ export default function EducationForm({
             Delete
           </button>
           <div className="edit">
-            <button className="cancel" onClick={toggleFill}>
+            <button className="cancel" onClick={cancelItem}>
               Cancel
             </button>
             <button type="submit" className="save">

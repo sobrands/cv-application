@@ -3,8 +3,15 @@ import "../../styles/Modal.css";
 import { RxCaretDown } from "react-icons/rx";
 import { FaGraduationCap } from "react-icons/fa";
 import EducationForm from "./EducationForm";
+import { v4 as uuidv4 } from "uuid";
 
-export default function EducationModal({ experiences, setExperiences }) {
+export default function EducationModal({
+  experiences,
+  setExperiences,
+  tempExperiences,
+  setTempExperiences,
+  toggleTemp,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isFill, setIsFill] = useState(false);
   const [formId, setFormId] = useState(0);
@@ -15,13 +22,32 @@ export default function EducationModal({ experiences, setExperiences }) {
 
   function toggleFill(e) {
     e.preventDefault();
-    setFormId(0);
     setIsFill(!isFill);
+  }
+
+  function addForm(e) {
+    e.preventDefault();
+    setIsFill(!isFill);
+    toggleTemp();
+    const key = uuidv4();
+    setTempExperiences([
+      ...tempExperiences,
+      {
+        id: key,
+        school: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+        isSaved: false,
+      },
+    ]);
+    setFormId(key);
   }
 
   function showForm(key) {
     setFormId(key);
     setIsFill(!isFill);
+    toggleTemp();
   }
 
   return (
@@ -42,14 +68,20 @@ export default function EducationModal({ experiences, setExperiences }) {
               <EducationForm
                 experiences={experiences}
                 setExperiences={setExperiences}
+                tempExperiences={tempExperiences}
+                setTempExperiences={setTempExperiences}
                 toggleFill={toggleFill}
+                toggleTemp={toggleTemp}
               />
             ) : (
               <EducationForm
                 id={formId}
                 experiences={experiences}
                 setExperiences={setExperiences}
+                tempExperiences={tempExperiences}
+                setTempExperiences={setTempExperiences}
                 toggleFill={toggleFill}
+                toggleTemp={toggleTemp}
               />
             )
           ) : (
@@ -66,7 +98,7 @@ export default function EducationModal({ experiences, setExperiences }) {
                 ))}
               </div>
               <div className="add">
-                <button onClick={toggleFill}>+ Education</button>
+                <button onClick={addForm}>+ Education</button>
               </div>
             </>
           )}

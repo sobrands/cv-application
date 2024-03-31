@@ -10,11 +10,17 @@ function App() {
     number: "",
     address: "",
   });
-  const [experiences, setExperiences] = useState([]);
+  const [eduExperiences, setEduExperiences] = useState([]);
+  const [tempEduExperiences, setTempEduExperiences] = useState([]);
+  const [showTempEdu, setShowTempEdu] = useState(false);
 
   function handleInputChange(e) {
     const { name, value } = e.target;
     setPersonalInfo({ ...personalInfo, [name]: value });
+  }
+
+  function toggleTempEdu() {
+    setShowTempEdu(!showTempEdu);
   }
 
   return (
@@ -22,8 +28,11 @@ function App() {
       <main>
         <Form
           handleInputChange={handleInputChange}
-          experiences={experiences}
-          setExperiences={setExperiences}
+          experiences={eduExperiences}
+          setExperiences={setEduExperiences}
+          tempExperiences={tempEduExperiences}
+          setTempExperiences={setTempEduExperiences}
+          toggleTemp={toggleTempEdu}
         />
         <Preview personalInfo={personalInfo} />
       </main>
