@@ -1,19 +1,19 @@
 import "../../styles/ExperienceInfo.css";
 
 export default function EducationInfo({
-  showTempEdu,
-  eduExperiences,
-  tempEduExperiences,
+  showTemp,
+  experiences,
+  tempExperiences,
 }) {
   return (
     <div className="info">
-      {showTempEdu ? (
+      {showTemp ? (
         <>
-          <p>Education</p>
-          {tempEduExperiences.map((experience) => (
-            <div key={experience.id} className="experience edu">
-              <p id="school">{experience.school}</p>
-              <p id="degree">{experience.degree}</p>
+          <p>Experience</p>
+          {tempExperiences.map((experience) => (
+            <div key={experience.id} className="experience exp">
+              <p id="companyName">{experience.companyName}</p>
+              <p id="position">{experience.position}</p>
               <div className="dates">
                 <p id="startDate">{experience.startDate}</p>
                 {experience.endDate.length > 0 && (
@@ -23,17 +23,18 @@ export default function EducationInfo({
                   </>
                 )}
               </div>
+              <p id="description">{experience.description}</p>
             </div>
           ))}
         </>
       ) : (
-        eduExperiences.length > 0 && (
+        experiences.length > 0 && (
           <>
-            <p>Education</p>
-            {tempEduExperiences.map((experience) => (
-              <div key={experience.id} className="experience">
-                <p id="school">{experience.school}</p>
-                <p id="degree">{experience.degree}</p>
+            <p>Experience</p>
+            {tempExperiences.map((experience) => (
+              <div key={experience.id} className="experience exp">
+                <p id="companyName">{experience.companyName}</p>
+                <p id="position">{experience.position}</p>
                 <div className="dates">
                   <p id="startDate">{experience.startDate}</p>
                   {experience.endDate.length > 0 && (
@@ -43,6 +44,7 @@ export default function EducationInfo({
                     </>
                   )}
                 </div>
+                <p id="description">{experience.description}</p>
               </div>
             ))}
           </>

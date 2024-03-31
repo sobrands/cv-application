@@ -29,7 +29,8 @@ h1 {
   font-weight: 600;
 }
 
-.details input {
+.details input,
+form textarea {
   background-color: #eeebeb;
   color: #302e2e;
   font-size: 0.95rem;

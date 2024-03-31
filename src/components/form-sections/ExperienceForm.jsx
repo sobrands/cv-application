@@ -61,22 +61,22 @@ export default function EducationForm({
     <form onSubmit={handleSubmit}>
       <div className="fields">
         <div className="details">
-          <label htmlFor="school">School</label>
+          <label htmlFor="companyName">Company Name</label>
           <input
-            id="school"
-            name="school"
-            placeholder="Enter school / university"
-            value={formData.school}
+            id="companyName"
+            name="companyName"
+            placeholder="Enter Company Name"
+            value={formData.companyName}
             onChange={handleInputChange}
           ></input>
         </div>
         <div className="details">
-          <label htmlFor="degree">Degree</label>
+          <label htmlFor="position">Position</label>
           <input
-            id="degree"
-            name="degree"
-            placeholder="Enter degree / field of study"
-            value={formData.degree}
+            id="position"
+            name="position"
+            placeholder="Enter Position / Title"
+            value={formData.position}
             onChange={handleInputChange}
           ></input>
         </div>
@@ -99,6 +99,17 @@ export default function EducationForm({
             value={formData.endDate}
             onChange={handleInputChange}
           ></input>
+        </div>
+        <div className="details">
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Enter description..."
+            value={formData.description}
+            onChange={handleInputChange}
+            rows="5"
+          ></textarea>
         </div>
         <div className="buttons">
           <button className="delete" onClick={removeItem}>

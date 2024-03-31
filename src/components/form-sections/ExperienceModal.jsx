@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../../styles/Modal.css";
 import { RxCaretDown } from "react-icons/rx";
-import { FaGraduationCap } from "react-icons/fa";
-import EducationForm from "./EducationForm";
+import { FaBriefcase } from "react-icons/fa";
+import ExperienceForm from "./ExperienceForm";
 import { v4 as uuidv4 } from "uuid";
 
 export default function EducationModal({
@@ -51,8 +51,8 @@ export default function EducationModal({
     <div className="formSection">
       <div className="title">
         <div className="titleName">
-          <FaGraduationCap className="titleLogo" />
-          <h1>Education</h1>
+          <FaBriefcase className="titleLogo" id="briefcase" />
+          <h1>Experience</h1>
         </div>
         <button className={isOpen ? "open" : ""} onClick={toggleExpand}>
           <RxCaretDown />
@@ -62,7 +62,7 @@ export default function EducationModal({
         <div className={isOpen ? "open" : ""}>
           {isFill ? (
             formId === 0 ? null : (
-              <EducationForm
+              <ExperienceForm
                 id={formId}
                 experiences={experiences}
                 setExperiences={setExperiences}
@@ -80,13 +80,13 @@ export default function EducationModal({
                     key={experience.id}
                     onClick={() => showForm(experience.id)}
                   >
-                    <p>{experience.school}</p>
+                    <p>{experience.companyName}</p>
                     <img src="" />
                   </button>
                 ))}
               </div>
               <div className="add">
-                <button onClick={addForm}>+ Education</button>
+                <button onClick={addForm}>+ Experience</button>
               </div>
             </>
           )}

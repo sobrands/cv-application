@@ -12,6 +12,10 @@
   font-size: 1.5rem;
 }
 
+.titleLogo#briefcase {
+  font-size: 1.25rem;
+}
+
 .title {
   display: flex;
   justify-content: space-between;

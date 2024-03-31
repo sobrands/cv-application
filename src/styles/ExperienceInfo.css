@@ -16,10 +16,16 @@
   padding: 0.1rem 0;
 }
 
-.experience {
+.edu {
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
+}
+
+.exp {
+  display: grid;
+  grid-template-columns: 1fr, auto;
+  grid-template-rows: repeat(3, auto);
 }
 
 .experience p {
@@ -39,15 +45,19 @@
 }
 
 .experience #school,
-.experience #degree {
+.experience #degree,
+.experience #companyName,
+.experience #position {
   text-align: left;
 }
 
-.experience #school {
+.experience #school,
+.experience #companyName {
   font-weight: 700;
 }
 
-.experience #degree {
+.experience #degree,
+.experience #position {
   font-size: 0.95rem;
   font-weight: 500;
   margin-top: -0.5rem;
@@ -55,4 +65,12 @@
 
 .experience #startDate {
   text-align: right;
+}
+
+.experience #description {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+  max-width: 600px;
+  text-align: justify;
+  line-height: 1.5rem;
 }
