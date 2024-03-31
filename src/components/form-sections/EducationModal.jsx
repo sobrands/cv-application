@@ -64,16 +64,7 @@ export default function EducationModal({
       {isOpen && (
         <div className={isOpen ? "open" : ""}>
           {isFill ? (
-            formId === 0 ? (
-              <EducationForm
-                experiences={experiences}
-                setExperiences={setExperiences}
-                tempExperiences={tempExperiences}
-                setTempExperiences={setTempExperiences}
-                toggleFill={toggleFill}
-                toggleTemp={toggleTemp}
-              />
-            ) : (
+            formId === 0 ? null : (
               <EducationForm
                 id={formId}
                 experiences={experiences}

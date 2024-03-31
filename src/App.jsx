@@ -34,7 +34,12 @@ function App() {
           setTempExperiences={setTempEduExperiences}
           toggleTemp={toggleTempEdu}
         />
-        <Preview personalInfo={personalInfo} />
+        <Preview
+          personalInfo={personalInfo}
+          showTempEdu={showTempEdu}
+          eduExperiences={eduExperiences}
+          tempEduExperiences={tempEduExperiences}
+        />
       </main>
     </>
   );

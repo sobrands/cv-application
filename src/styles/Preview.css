@@ -4,4 +4,7 @@
   min-width: 790px;
   min-height: 300px;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }

@@ -5,6 +5,7 @@ export default function EducationForm({
   setTempExperiences,
   id,
   toggleFill,
+  toggleTemp,
 }) {
   const formData = tempExperiences.find((experience) => experience.id === id);
   console.log(formData);
@@ -32,6 +33,7 @@ export default function EducationForm({
     setTempExperiences(updatedTempExperiences);
     setExperiences(updatedTempExperiences);
     toggleFill(e);
+    toggleTemp();
   }
 
   function cancelItem(e) {
@@ -44,6 +46,7 @@ export default function EducationForm({
       setTempExperiences(newList);
     }
     toggleFill(e);
+    toggleTemp();
   }
 
   function removeItem(e) {
@@ -52,6 +55,7 @@ export default function EducationForm({
     setExperiences(newList);
     setTempExperiences(newList);
     toggleFill(e);
+    toggleTemp();
   }
 
   return (
