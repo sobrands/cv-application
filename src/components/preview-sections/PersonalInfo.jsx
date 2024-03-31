@@ -9,7 +9,7 @@ export default function PersonalInfo({ personalInfo }) {
 
   return (
     <div className="personalInfo">
-      <h1 className="fullName">{personalInfo.name}</h1>
+      <h1 className="fullName">{personalInfo.fullName}</h1>
       <div className="otherInfo">
         {hasEmail && (
           <div className="deets email">

@@ -26,12 +26,12 @@ export default function PersonalDetails({ handleInputChange }) {
           ></input>
         </div>
         <div className="details">
-          <label htmlFor="phoneNumber">
+          <label htmlFor="number">
             Phone Number<span>recommended</span>
           </label>
           <input
-            id="phoneNumber"
-            name="phoneNumber"
+            id="number"
+            name="number"
             placeholder="Enter phone number"
             onChange={handleInputChange}
           ></input>

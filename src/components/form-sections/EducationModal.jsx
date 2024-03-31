@@ -4,9 +4,10 @@ import { RxCaretDown } from "react-icons/rx";
 import { FaGraduationCap } from "react-icons/fa";
 import EducationForm from "./EducationForm";
 
-export default function ExpandableModal() {
+export default function EducationModal({ experiences, setExperiences }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isFill, setIsFill] = useState(false);
+  const [formId, setFormId] = useState(0);
 
   function toggleExpand() {
     setIsOpen(!isOpen);
@@ -14,11 +15,12 @@ export default function ExpandableModal() {
 
   function toggleFill(e) {
     e.preventDefault();
+    setFormId(0);
     setIsFill(!isFill);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function showForm(key) {
+    setFormId(key);
     setIsFill(!isFill);
   }
 
@@ -36,14 +38,37 @@ export default function ExpandableModal() {
       {isOpen && (
         <div className={isOpen ? "open" : ""}>
           {isFill ? (
-            <EducationForm
-              handleSubmit={handleSubmit}
-              toggleFill={toggleFill}
-            />
+            formId === 0 ? (
+              <EducationForm
+                experiences={experiences}
+                setExperiences={setExperiences}
+                toggleFill={toggleFill}
+              />
+            ) : (
+              <EducationForm
+                id={formId}
+                experiences={experiences}
+                setExperiences={setExperiences}
+                toggleFill={toggleFill}
+              />
+            )
           ) : (
-            <div className="add">
-              <button onClick={toggleFill}>+ Education</button>
-            </div>
+            <>
+              <div className="experiences">
+                {experiences.map((experience) => (
+                  <button
+                    key={experience.id}
+                    onClick={() => showForm(experience.id)}
+                  >
+                    <p>{experience.school}</p>
+                    <img src="" />
+                  </button>
+                ))}
+              </div>
+              <div className="add">
+                <button onClick={toggleFill}>+ Education</button>
+              </div>
+            </>
           )}
         </div>
       )}

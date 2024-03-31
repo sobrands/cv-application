@@ -5,33 +5,26 @@ import { useState } from "react";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
-    name: "",
+    fullName: "",
     email: "",
     number: "",
     address: "",
   });
+  const [experiences, setExperiences] = useState([]);
 
   function handleInputChange(e) {
-    switch (e.target.id) {
-      case "fullName":
-        setPersonalInfo({ ...personalInfo, name: e.target.value });
-        break;
-      case "email":
-        setPersonalInfo({ ...personalInfo, email: e.target.value });
-        break;
-      case "phoneNumber":
-        setPersonalInfo({ ...personalInfo, number: e.target.value });
-        break;
-      case "address":
-        setPersonalInfo({ ...personalInfo, address: e.target.value });
-        break;
-    }
+    const { name, value } = e.target;
+    setPersonalInfo({ ...personalInfo, [name]: value });
   }
 
   return (
     <>
       <main>
-        <Form handleInputChange={handleInputChange} />
+        <Form
+          handleInputChange={handleInputChange}
+          experiences={experiences}
+          setExperiences={setExperiences}
+        />
         <Preview personalInfo={personalInfo} />
       </main>
     </>

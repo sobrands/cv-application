@@ -26,7 +26,7 @@
   color: black;
   border: none; 
 
-  transition: transform 0.3s ease-in-out;
+  /* transition: transform 0.3s ease-in-out; */
 }
 
 .title button.open {
@@ -62,6 +62,25 @@ div.open {
   padding: 1rem 3rem;
   border: 3px solid rgb(168, 168, 168);
   border-radius: 6rem;
+}
+
+.experiences button {
+  width: 100%;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  border-top: 2px solid rgb(214, 209, 209);
+  padding: 0.5rem 0;
+}
+
+.experiences button:last-child {
+  border-bottom: 2px solid rgb(214, 209, 209);
+}
+
+.experiences button p {
+  font-size: 1.4rem;
 }
 
 .buttons {
